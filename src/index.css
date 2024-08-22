@@ -66,42 +66,6 @@ button:active {
   transform: translateY(1px);
 }
 
-nav {
-  background-color: var(--navBar-color);
-  padding: 0.5rem;
-  height: 3.5em;
-  width: 100vw;
-}
-
-.nav-container {
-  display: flex;
-  gap: 1em;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1em;
-}
-
-.nav-container > h2 {
-  margin: 0;
-  padding: 0;
-  user-select: none;
-}
-
-.nav-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-
 form[action$="destroy"] button {
   color: #f44250;
 }

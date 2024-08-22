@@ -11,7 +11,7 @@ import ErrorPage from './components/error/error-page';
 // import NotFoundPage from './components/not-found-page/not-found-page;'
 
 import './index.css'
-import Root from './components/root/root'
+import Root from './components/root/Root.jsx'
 
 
 const router = createBrowserRouter([
