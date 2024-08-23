@@ -6,7 +6,7 @@ export default function Navbar() {
             <div className="nav-container">
                 <h2>The Odin Market</h2>
 
-                <div>
+                <div id="search-container">
                     <form id="search-form" role="search">
                         <input type="search" name="q" id="q" aria-label="search product" placeholder="Search"/>
                         <div className="search-spinner" aria-hidden hidden={true}></div>
