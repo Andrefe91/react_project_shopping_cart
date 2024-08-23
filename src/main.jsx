@@ -11,7 +11,7 @@ import AboutPage from './components/about/About.jsx'
 // import NotFoundPage from './components/not-found-page/not-found-page;'
 
 import './index.css'
-import Root from './components/root/Root.jsx'
+import Root, {loader as rootLoader} from './components/root/Root.jsx'
 
 
 const router = createBrowserRouter([
@@ -19,6 +19,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    loader: rootLoader,
     children: [
       {
         path: "cart",

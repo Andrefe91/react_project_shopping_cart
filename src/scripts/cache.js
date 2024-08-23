@@ -16,7 +16,7 @@ async function getCache() {
 
         if (!cache) { //In the given case that the cache is empty
             console.log("Cache is empty");
-            return {};
+            return null;
         }
         return cache
     } catch (error) {
@@ -24,4 +24,4 @@ async function getCache() {
     }
 }
 
-
+export { setCache, getCache }
