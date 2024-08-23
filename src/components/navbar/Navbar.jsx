@@ -1,10 +1,13 @@
 import "./navbar.css"
+import { Link } from "react-router-dom"
 
 export default function Navbar() {
     return (
         <nav>
             <div className="nav-container">
-                <h2>The Odin Market</h2>
+                <h2>
+                    <Link to={'/'}>The Odin Market</Link>
+                </h2>
 
                 <div id="search-container">
                     <form id="search-form" role="search">
@@ -17,11 +20,11 @@ export default function Navbar() {
                 <div className="nav-links">
 
                     <div className="nav-button">
-                        Cart
+                        <Link to={'cart'}>Cart</Link>
                     </div>
 
                     <div className="nav-button">
-                        About
+                        <Link to={'about'}>About</Link>
                     </div>
                 </div>
             </div>
