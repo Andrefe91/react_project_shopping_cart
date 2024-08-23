@@ -6,12 +6,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ErrorPage from './components/error/error-page';
 // import ProductPage from './components/product-page/product-page;'
 import CartPage from './components/cart/Cart.jsx';
-import AboutPage from './components/about/About.jsx'
-// import HomePage from './components/home-page/home-page;'
+import AboutPage from './components/about/About.jsx';
+import Index from './routes/index/Index.jsx';
 // import NotFoundPage from './components/not-found-page/not-found-page;'
 
 import './index.css'
-import Root, {loader as rootLoader} from './components/root/Root.jsx'
+import Root, {loader as rootLoader} from './routes/root/Root.jsx'
 
 
 const router = createBrowserRouter([
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     loader: rootLoader,
     children: [
+      {
+        index: true,
+        element: <Index />,
+      },
       {
         path: "cart",
         element: <CartPage />,
