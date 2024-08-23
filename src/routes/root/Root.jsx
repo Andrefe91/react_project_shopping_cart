@@ -1,6 +1,11 @@
 import "./root.css";
+
+//Scripts
 import fetchStoreProducts from "../../scripts/getData";
+
+// Modules
 import { Outlet, useLoaderData } from "react-router-dom";
+import { useState } from "react";
 
 //Components
 import Navbar from "../../components/navbar/Navbar";
@@ -14,12 +19,15 @@ export async function loader() {
 
 export default function Root() {
 	const storeProducts = useLoaderData();
+	const [cartQuantity, setCartQuantity] = useState(0);
+
+	//Here is more information about using Context in the Outlet https://reactrouter.com/en/main/hooks/use-outlet-context
 
 	console.log(storeProducts);
 
 	return (
 		<>
-            <Navbar />
+            <Navbar cartQuantity={cartQuantity}/>
 			<div className="main-container">
 				<Outlet />
 			</div>

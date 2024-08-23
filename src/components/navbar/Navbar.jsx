@@ -1,7 +1,8 @@
 import "./navbar.css"
+import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
-export default function Navbar() {
+function Navbar({cartQuantity}) {
     return (
         <nav>
             <div className="nav-container">
@@ -20,7 +21,7 @@ export default function Navbar() {
                 <div className="nav-links">
 
                     <div className="nav-button">
-                        <Link to={'cart'}>Cart</Link>
+                        <Link to={'cart'}>Cart ({cartQuantity})</Link>
                     </div>
 
                     <div className="nav-button">
@@ -31,3 +32,9 @@ export default function Navbar() {
         </nav>
     )
 }
+
+Navbar.propTypes = {
+    cartQuantity: PropTypes.number.isRequired,
+}
+
+export default Navbar
