@@ -1,12 +1,10 @@
+//Css
 import "./root.css";
-
 //Scripts
 import fetchStoreProducts from "../../scripts/getData";
-
 // Modules
 import { Outlet, useLoaderData } from "react-router-dom";
-import { useState, useContext } from "react";
-
+import { useState, createContext } from "react";
 //Components
 import Navbar from "../../components/navbar/Navbar";
 
@@ -17,20 +15,21 @@ export async function loader() {
 	return storeProducts
 }
 
+//Creating the context for this route
+export const rootContext = createContext(null);
+
 export default function Root() {
 	const storeProducts = useLoaderData();
 	const [cartQuantity, setCartQuantity] = useState(0);
 
-	//Here is more information about using Context in the Outlet https://reactrouter.com/en/main/hooks/use-outlet-context
-
-	console.log(storeProducts);
-
 	return (
-		<>
-            <Navbar cartQuantity={cartQuantity}/>
+		<rootContext.Provider value={{cartQuantity, setCartQuantity}}>
+			<Navbar />
 			<div className="main-container">
-				<Outlet context={[cartQuantity, setCartQuantity]}/>
+				<Outlet />
 			</div>
-		</>
+		</rootContext.Provider>
 	);
 }
+
+

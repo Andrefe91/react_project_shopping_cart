@@ -1,12 +1,12 @@
 //Css
 import "./index.css"
-
 //Modules
-import { useOutletContext } from "react-router-dom"
-
+import { useContext } from "react";
+//Context
+import { rootContext } from "../root/Root";
 
 export default function Index() {
-    const [cartQuantity, setCartQuantity] = useOutletContext();
+    const {cartQuantity, setCartQuantity} = useContext(rootContext);
 
     const increaseCartQuantity = () => { setCartQuantity((cartQuantity) => cartQuantity + 1) }
 

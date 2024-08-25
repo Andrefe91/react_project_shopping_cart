@@ -1,8 +1,14 @@
+//Css
 import "./navbar.css"
-import PropTypes from "prop-types"
+//Modules
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+//Context
+import { rootContext } from "../../routes/root/Root";
 
-function Navbar({cartQuantity}) {
+export default function Navbar() {
+    const { cartQuantity } = useContext(rootContext);
+
     return (
         <nav>
             <div className="nav-container">
@@ -33,8 +39,3 @@ function Navbar({cartQuantity}) {
     )
 }
 
-Navbar.propTypes = {
-    cartQuantity: PropTypes.number.isRequired,
-}
-
-export default Navbar
