@@ -13,8 +13,6 @@ export default function Index() {
 
     const addToCart = () => { setCartQuantity((cartQuantity) => cartQuantity + 1) }
 
-    console.log(storeProducts);
-
     return (
         <>
             <ProductsList storeProducts={storeProducts} />

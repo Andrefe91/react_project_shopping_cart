@@ -1,19 +1,27 @@
 .product-container {
     outline: 1px solid gray;
     border-radius: 5px;
-}
-
-.product-image {
-    width: 10rem;
-    height: 20rem;
-    overflow: hidden;
     display: flex;
 }
 
+.product-image {
+    min-width: 15rem;
+    height: 15rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .product-image > img {
-    max-width: inherit;
-    max-height: inherit;
+    max-width: 10rem;
+    max-height: 12rem;
     height: inherit;
     width: inherit;
     object-fit: scale-down;
+}
+
+.product-information {
+    padding-left: 1em;
 }
