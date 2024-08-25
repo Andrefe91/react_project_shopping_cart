@@ -5,7 +5,7 @@ import fetchStoreProducts from "../../scripts/getData";
 
 // Modules
 import { Outlet, useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 //Components
 import Navbar from "../../components/navbar/Navbar";
@@ -29,7 +29,7 @@ export default function Root() {
 		<>
             <Navbar cartQuantity={cartQuantity}/>
 			<div className="main-container">
-				<Outlet />
+				<Outlet context={[cartQuantity, setCartQuantity]}/>
 			</div>
 		</>
 	);
