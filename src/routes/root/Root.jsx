@@ -12,6 +12,14 @@ import Navbar from "../../components/navbar/Navbar";
 // eslint-disable-next-line react-refresh/only-export-components
 export async function loader() {
 	const storeProducts = await fetchStoreProducts();
+
+	if (!storeProducts) {
+		throw new Response("", {
+			status: 500,
+            statusText: "Error fetching products",
+		})
+	}
+
 	return storeProducts
 }
 
@@ -23,7 +31,7 @@ export default function Root() {
 	const [cartQuantity, setCartQuantity] = useState(0);
 
 	return (
-		<rootContext.Provider value={{cartQuantity, setCartQuantity}}>
+		<rootContext.Provider value={{cartQuantity, setCartQuantity, storeProducts}}>
 			<Navbar />
 			<div className="main-container">
 				<Outlet />

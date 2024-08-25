@@ -7,14 +7,13 @@ import { rootContext } from "../root/Root";
 
 export default function Index() {
     const {cartQuantity, setCartQuantity} = useContext(rootContext);
+    const { storeProducts } = useContext(rootContext);
 
-    const increaseCartQuantity = () => { setCartQuantity((cartQuantity) => cartQuantity + 1) }
+    const addToCart = () => { setCartQuantity((cartQuantity) => cartQuantity + 1) }
 
     return (
-        <>
-            <p>This is the <b>Home</b> Page</p>
-            <p>This is the Cart Quantity {cartQuantity}</p>
-            <button onClick={increaseCartQuantity}>Increase by One</button>
-        </>
+        <div className="products-container">
+            
+        </div>
     )
 }

@@ -14,6 +14,7 @@ export default async function fetchStoreProducts() {
         }
 
         const response = await fetch("https://fakestoreapi.com/products");
+
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
