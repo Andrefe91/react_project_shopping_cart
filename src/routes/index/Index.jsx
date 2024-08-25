@@ -3,7 +3,7 @@ import "./index.css"
 //Modules
 import { useContext } from "react";
 //Components
-import Product from "../../components/product/Product";
+import ProductsList from "../../components/productsList/ProducsList";
 //Context
 import { rootContext } from "../root/Root";
 
@@ -16,12 +16,8 @@ export default function Index() {
     console.log(storeProducts);
 
     return (
-        <div className="products-container">
-            {storeProducts.map( (product) => {
-                return (
-                    <Product key={product.id} productInfo={product} addToCart={addToCart}/>
-                )
-            })}
-        </div>
+        <>
+            <ProductsList storeProducts={storeProducts} />
+        </>
     )
 }
