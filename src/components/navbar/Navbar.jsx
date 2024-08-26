@@ -6,7 +6,7 @@ import { useContext } from "react"
 import PropTypes from "prop-types"
 //Components
 //Context
-import { rootContext } from "../../routes/root/Root";
+import { rootContext } from "../../context/rootContext"
 
 function Navbar() {
     const { cart } = useContext(rootContext);

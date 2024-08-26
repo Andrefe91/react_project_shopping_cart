@@ -5,7 +5,7 @@ import { useContext } from "react";
 //Components
 import CategoryLink from "../categoryLink/CategoryLink";
 //Context
-import { rootContext } from "../../routes/root/Root";
+import { rootContext } from "../../context/rootContext";
 
 
 function Product({ productInfo }) {

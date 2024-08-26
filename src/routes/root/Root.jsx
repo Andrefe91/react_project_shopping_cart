@@ -4,9 +4,11 @@ import "./root.css";
 import fetchStoreProducts from "../../scripts/getData";
 // Modules
 import { Outlet, useLoaderData } from "react-router-dom";
-import { useState, createContext } from "react";
+import { useState } from "react";
 //Components
 import Navbar from "../../components/navbar/Navbar";
+//Context
+import { rootContext } from "../../context/rootContext";
 
 //Loader for this route - Loading the data from the API https://fakestoreapi.com/products
 // eslint-disable-next-line react-refresh/only-export-components
@@ -21,9 +23,6 @@ export async function loader() {
 	}
 	return storeProducts
 }
-
-//Creating the context for this route
-export const rootContext = createContext(null);
 
 export default function Root() {
 	const storeProducts = useLoaderData();
