@@ -19,7 +19,6 @@ export async function loader() {
             statusText: "Error fetching products",
 		})
 	}
-
 	return storeProducts
 }
 
@@ -28,10 +27,10 @@ export const rootContext = createContext(null);
 
 export default function Root() {
 	const storeProducts = useLoaderData();
-	const [cartQuantity, setCartQuantity] = useState(0);
+	const [cart, setCart] = useState([]);
 
 	return (
-		<rootContext.Provider value={{cartQuantity, setCartQuantity, storeProducts}}>
+		<rootContext.Provider value={{cart, setCart, storeProducts}}>
 			<Navbar />
 			<div className="main-container">
 				<Outlet />

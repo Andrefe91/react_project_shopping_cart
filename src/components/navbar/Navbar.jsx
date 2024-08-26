@@ -3,11 +3,13 @@ import "./navbar.css"
 //Modules
 import { Link } from "react-router-dom"
 import { useContext } from "react"
+import PropTypes from "prop-types"
+//Components
 //Context
 import { rootContext } from "../../routes/root/Root";
 
-export default function Navbar() {
-    const { cartQuantity } = useContext(rootContext);
+function Navbar() {
+    const { cart } = useContext(rootContext);
 
     return (
         <nav>
@@ -27,7 +29,7 @@ export default function Navbar() {
                 <div className="nav-links">
 
                     <div className="nav-button">
-                        <Link to={'cart'}>Cart ({cartQuantity})</Link>
+                        <Link to={'cart'}>Cart ({cart.length})</Link>
                     </div>
 
                     <div className="nav-button">
@@ -39,3 +41,8 @@ export default function Navbar() {
     )
 }
 
+Navbar.propTypes = {
+    cart: PropTypes.array,
+}
+
+export default Navbar
