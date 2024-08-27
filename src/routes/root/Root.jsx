@@ -26,7 +26,7 @@ export async function loader() {
 
 export default function Root() {
 	const storeProducts = useLoaderData();
-	const [cart, setCart] = useState([]);
+	const [cart, setCart] = useState({});
 
 	return (
 		<rootContext.Provider value={{cart, setCart, storeProducts}}>

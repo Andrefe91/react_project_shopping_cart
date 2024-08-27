@@ -29,7 +29,7 @@ function Navbar() {
                 <div className="nav-links">
 
                     <div className="nav-button">
-                        <Link to={'cart'}>Cart ({cart.length})</Link>
+                        <Link to={'cart'}>Cart ({Object.keys(cart).length})</Link>
                     </div>
 
                     <div className="nav-button">

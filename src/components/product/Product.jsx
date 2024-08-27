@@ -9,15 +9,24 @@ import { rootContext } from "../../context/rootContext";
 
 function Product({ productInfo }) {
 	const { cart, setCart } = useContext(rootContext);
-	const [productQuantity, setProductQuantity] = useState(1);
+	const [productQuantity, setProductQuantity] = useState(
+        cart[productInfo.id] ? cart[productInfo.id] : 1
+    );
 
-	function addToCart(productInfo) {
-		setCart([...cart, productInfo.id]);
+	function addToCart(productId, productQuantity) {
+		setCart({...cart, [productId] : productQuantity});
 	}
+
+    function deleteFromCart(productId) {
+        let objectCopy = { ...cart };
+        delete objectCopy[productId];
+        setCart(objectCopy);
+    }
 
 	function addProductQuantity(event) {
 		setProductQuantity(Number(event.target.value));
 	}
+
 
 	return (
 		<div className="product-container">
@@ -45,16 +54,25 @@ function Product({ productInfo }) {
 					type="number"
 					name={"item" + productInfo.id + "-quantity"}
 					id={"item" + productInfo.id + "-quantity"}
-					value={productQuantity}
+					value={ productQuantity }
 					min="1"
 					max="10"
 					onChange={addProductQuantity}
 					className="product-quantity"
+                    disabled={cart[productInfo.id]}
 				/>
 
-				<button onClick={() => addToCart(productInfo)} className="addToCart">
-					Add to Cart
-				</button>
+                {!cart[productInfo.id] &&
+                    <button onClick={() => addToCart(productInfo.id, productQuantity)} className="addToCart">
+                        Add to Cart
+                    </button>
+                }
+
+                {cart[productInfo.id] &&
+                    <button onClick={() => deleteFromCart(productInfo.id)} className="deleteFromCart">
+                        Remove from Cart
+                    </button>
+                }
 			</div>
 		</div>
 	);
