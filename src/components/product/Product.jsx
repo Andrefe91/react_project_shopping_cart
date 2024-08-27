@@ -7,7 +7,7 @@ import CategoryLink from "../categoryLink/CategoryLink";
 //Context
 import { rootContext } from "../../context/rootContext";
 
-function Product({ productInfo }) {
+function Product({ productInfo, extended }) {
 	const { cart, setCart } = useContext(rootContext);
 	const [productQuantity, setProductQuantity] = useState(
         cart[productInfo.id] ? cart[productInfo.id] : 1
@@ -25,56 +25,68 @@ function Product({ productInfo }) {
         setCart(objectCopy);
     }
 
-	function addProductQuantity(event) {
+	function updateProductQuantity(event, productId) {
 		setProductQuantity(Number(event.target.value));
+
+		//Only update quantity if product is already in cart
+		if (cart[productInfo.id]) {
+			setCart({...cart, [productId]:(Number(event.target.value))});
+		}
 	}
 
 
 	return (
-		<div className="product-container">
+		<div className={(extended ? "" : "cart-")+"product-container"}>
 			<div className="product-image">
 				<img src={productInfo.image} alt={productInfo.title} />
 			</div>
 
 			<div className="product-information">
-				<CategoryLink category={productInfo.category} />
+				{/* Check if on Main Page to show category */}
+				{extended && <CategoryLink category={productInfo.category} />}
+
 				<h3>{productInfo.title}</h3>
-				<p>
-					{[
-						productInfo.description[0].toUpperCase(),
-						productInfo.description.slice(1),
-					]}
-				</p>
+
+				{extended &&
+					<p>
+						{[
+							productInfo.description[0].toUpperCase(),
+							productInfo.description.slice(1),
+						]}
+					</p>
+				}
+
 				<div className="free-shipping">
 					<p className="product-price">Price: ${productInfo.price}</p>
-					<p>
-						{productInfo.price > 100 && "- FREE Shipping on qualifying order"}
-					</p>
+					{productInfo.price > 100 && <p>- Qualifies for FREE Shipping</p>}
 				</div>
 
-				<input
-					type="number"
-					name={"item" + productInfo.id + "-quantity"}
-					id={"item" + productInfo.id + "-quantity"}
-					value={ productQuantity }
-					min="1"
-					max="10"
-					onChange={addProductQuantity}
-					className="product-quantity"
-                    disabled={cart[productInfo.id]}
-				/>
+				<div className="actions">
+					<input
+						type="number"
+						name={"item" + productInfo.id + "-quantity"}
+						id={"item" + productInfo.id + "-quantity"}
+						value={ productQuantity }
+						min="1"
+						max="10"
+						onChange={(e) => {updateProductQuantity(e, productInfo.id)}}
+						className="product-quantity"
+						// disabled={cart[productInfo.id]}
+					/>
 
-                {!cart[productInfo.id] &&
-                    <button onClick={() => addToCart(productInfo.id, productQuantity)} className="addToCart">
-                        Add to Cart
-                    </button>
-                }
+					{!cart[productInfo.id] &&
+						<button onClick={() => addToCart(productInfo.id, productQuantity)} className="addToCart">
+							Add to Cart
+						</button>
+					}
 
-                {cart[productInfo.id] &&
-                    <button onClick={() => deleteFromCart(productInfo.id)} className="deleteFromCart">
-                        Remove from Cart
-                    </button>
-                }
+					{cart[productInfo.id] &&
+						<button onClick={() => deleteFromCart(productInfo.id)} className="deleteFromCart">
+							Remove from Cart
+						</button>
+					}
+				</div>
+
 			</div>
 		</div>
 	);
@@ -87,6 +99,7 @@ Product.propTypes = {
 	price: PropTypes.number,
 	addToCart: PropTypes.func,
 	productInfo: PropTypes.object,
+	extended: PropTypes.bool,
 };
 
 export default Product;

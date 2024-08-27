@@ -11,7 +11,7 @@ function ProductsList({ storeProducts }) {
     <div className="products-container">
         {storeProducts.map( (product) => {
             return (
-                <Product key={product.id} productInfo={product} />
+                <Product key={product.id} productInfo={product} extended={true} />
             )
         })}
     </div>

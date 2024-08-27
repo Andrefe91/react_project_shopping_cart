@@ -3,12 +3,12 @@ import "./cart.css";
 //Modules
 import { useContext } from "react";
 //Components
-import CartProduct from "../cartProduct/CartProduct";
+import Product from "../product/Product";
 //Context
 import { rootContext } from "../../context/rootContext";
 
 export default function Cart() {
-	const { cart, setCart } = useContext(rootContext);
+	const { cart } = useContext(rootContext);
 	const { storeProducts } = useContext(rootContext);
 
 	const idsInCart = Object.keys(cart);
@@ -18,11 +18,7 @@ export default function Cart() {
 			{storeProducts.map((product) => {
 				if (idsInCart.includes(`${product.id}`)) {
 					return (
-						<CartProduct
-							productInfo={product}
-							productQuantity={cart[product.id]}
-							key={product.id}
-						/>
+						<Product key={product.id} productInfo={product} extended={false} />
 					);
 				}
 			})}
