@@ -57,8 +57,12 @@ function Product({ productInfo, extended }) {
 				}
 
 				<div className="free-shipping">
-					<p className="product-price">Price: ${productInfo.price}</p>
+					<p className="product-price">{extended ? "":"Unit"} Price: ${productInfo.price}</p>
 					{productInfo.price > 100 && <p>- Qualifies for FREE Shipping</p>}
+				</div>
+
+				<div className="cost-calculations">
+					<p></p>
 				</div>
 
 				<div className="actions">
