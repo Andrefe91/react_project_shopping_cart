@@ -1,9 +1,11 @@
 //Css
 import "./productlist.css";
+//Modules
+import { PropTypes } from "prop-types";
 //Components
 import Product from "../product/Product";
 
-export default function ProductsList({ storeProducts }) {
+function ProductsList({ storeProducts }) {
 
     return (
     <div className="products-container">
@@ -16,4 +18,8 @@ export default function ProductsList({ storeProducts }) {
     )
 }
 
+ProductsList.propTypes = {
+    storeProducts: PropTypes.arrayOf(PropTypes.object),
+};
 
+export default ProductsList;

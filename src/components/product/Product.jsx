@@ -18,7 +18,9 @@ function Product({ productInfo }) {
 	}
 
     function deleteFromCart(productId) {
+		//As to not mutate the object, create a new one
         let objectCopy = { ...cart };
+		//And then delete the product with productId
         delete objectCopy[productId];
         setCart(objectCopy);
     }

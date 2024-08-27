@@ -1,0 +1,33 @@
+.cart-product-container {
+    outline: 1px solid gray;
+    border-radius: 5px;
+    display: flex;
+}
+
+.cart-product-container > .product-image {
+    min-width: 10rem;
+    min-height: 10rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-product-container > .product-image > img {
+    max-width: 5rem;
+    max-height: 8rem;
+    height: inherit;
+    width: inherit;
+    object-fit: scale-down;
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.cart-product-container p{
+    margin: 0.2rem 0 0.2rem 0;
+}
+
