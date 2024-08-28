@@ -10,12 +10,12 @@ import { rootContext } from "../../context/rootContext"
 
 function Navbar() {
     const { cart } = useContext(rootContext);
-
+    let title = "{ The Odin Market }"
     return (
         <nav>
             <div className="nav-container">
                 <h2>
-                    <Link to={'/'}>The Odin Market</Link>
+                    <Link to={'/'}> {title} </Link>
                 </h2>
 
                 <div id="search-container">
