@@ -1,0 +1,27 @@
+.about-container {
+    outline: 2px solid rgb(165, 226, 86);
+    border-radius: 1rem;
+    box-sizing: border-box;
+}
+
+.about-container p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.about-container h2 {
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 0;
+}
+
+.about-link {
+    background-color: rgb(165, 226, 86);
+    padding-bottom: 0.5rem;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.about-link p {
+    margin: 0;
+    padding-left: 1rem;
+}
