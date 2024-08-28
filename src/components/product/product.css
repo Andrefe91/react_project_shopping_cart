@@ -26,7 +26,11 @@
     padding: 1em;
 }
 
-.product-price {
+.product-information > h3 {
+    margin-bottom: 0;
+}
+
+.product-price, .cost-values {
     font-weight: bold;
     font-size: 1.2rem;
     color: #103003;
@@ -38,8 +42,9 @@
 }
 
 .free-shipping {
-    display: flex;
-    align-items: baseline;
+    margin-top: 0.3rem;
+    color: #2ea44f;
+    font-weight: bold;
 }
 
 .free-shipping p:nth-of-type(2) {
@@ -131,5 +136,40 @@ button.deleteFromCart {
 
 .cart-product-container .actions {
     padding-top: 1em;
+    display: flex;
+    align-items: center;
 }
 
+.product-container .actions {
+    display: flex;
+    align-items: center;
+}
+
+.cost-calculations {
+    display: flex;
+}
+
+.cart-product-container .cost-titles,
+.cart-product-container .cost-values{
+    width: 9rem;
+}
+
+.cart-product-container .cost-titles p,
+.cart-product-container .cost-values p{
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.cost-values p{
+    &::before {
+        content: "$";
+    }
+}
+
+.product-container .cost-values {
+    margin-left: 0.4rem;
+}
+
+.product-container .cost-calculations p {
+    margin-top: 0;
+}

@@ -15,6 +15,7 @@ export default function Cart() {
 
 	return (
 		<div className="cart-container">
+			<h1>Your Cart</h1>
 			{storeProducts.map((product) => {
 				if (idsInCart.includes(`${product.id}`)) {
 					return (
