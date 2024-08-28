@@ -4,10 +4,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 //Components
 import ErrorPage from './components/error/error-page';
-// import ProductPage from './components/product-page/product-page;'
 import CartPage from './components/cart/Cart.jsx';
 import AboutPage from './components/about/About.jsx';
 import Index from './routes/index/Index.jsx';
+import Checkout from './components/checkout/Checkout.jsx';
 // import NotFoundPage from './components/not-found-page/not-found-page;'
 
 import './index.css'
@@ -32,7 +32,11 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <AboutPage />,
-      }
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
+      },
     ]
   }
 ]);
