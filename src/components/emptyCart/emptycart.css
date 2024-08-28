@@ -1,0 +1,17 @@
+#empty-cart {
+    outline: 3px dashed rgb(184, 184, 184);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#empty-cart * {
+    color: rgb(90, 90, 90);
+}
+
+
+#empty-cart h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0rem;
+}

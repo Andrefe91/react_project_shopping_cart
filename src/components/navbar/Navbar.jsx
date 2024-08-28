@@ -10,7 +10,7 @@ import { rootContext } from "../../context/rootContext"
 
 function Navbar() {
     const { cart } = useContext(rootContext);
-    let title = "{ The Odin Market }"
+    let title = "{  The Odin Market  }"
     return (
         <nav>
             <div className="nav-container">

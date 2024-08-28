@@ -1,3 +1,22 @@
+html {
+    --main-container-sideMargin: 0.5rem;
+
+    @media (min-width: 640px) {
+        --main-container-sideMargin: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        --main-container-sideMargin: 3rem;
+    }
+
+    @media (min-width: 1280px) {
+        --main-container-sideMargin: 10rem;
+    }
+
+    overflow-x: hidden;
+}
+
+
 #root {
     display: flex;
     flex-direction: column;
@@ -8,6 +27,8 @@
 .main-container {
     max-width: calc(100vw);
     margin-top: 2em;
-    margin-right: 12em;
-    margin-left: 12em;
+    margin-right: var(--main-container-sideMargin);
+    margin-left: var(--main-container-sideMargin);
+    padding-bottom: 2em;
 }
+
