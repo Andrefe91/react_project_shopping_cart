@@ -5,6 +5,8 @@ import { useContext } from "react";
 //Components
 import Product from "../product/Product";
 import EmptyCart from "../emptyCart/EmptyCart";
+//Scripts
+import cartTotal from "../../scripts/cartTotal";
 //Context
 import { rootContext } from "../../context/rootContext";
 
@@ -13,6 +15,10 @@ export default function Cart() {
 	const { storeProducts } = useContext(rootContext);
 
 	const idsInCart = Object.keys(cart); //Used for filtering the products that are on the cart
+
+	const cartCalculations = cartTotal(cart, storeProducts);
+
+	console.log(cartCalculations);
 	return (
 		<div className="cart-container">
 			<h1>Your Cart</h1>
