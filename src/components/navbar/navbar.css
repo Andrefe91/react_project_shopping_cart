@@ -3,6 +3,10 @@ nav {
     padding: 0.5rem;
     height: 3.5em;
     width: 100vw;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .nav-container {
