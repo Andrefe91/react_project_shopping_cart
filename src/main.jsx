@@ -52,7 +52,6 @@ const router = createBrowserRouter([
       {
         path: "category/:categoryName",
         element: <Index />,
-        loader: rootLoader,
       }
     ]
   }

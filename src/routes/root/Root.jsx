@@ -14,9 +14,13 @@ import { rootContext } from "../../context/rootContext";
 // eslint-disable-next-line react-refresh/only-export-components
 export async function loader({request}) {
 	const storeProducts = await fetchStoreProducts();
+	console.log("1", storeProducts);
 	const url = new URL(request.url);
+	console.log("2", url);
 	const search = url.searchParams.get("search")
+	console.log("3", search);
 	const category = url.pathname.split("/")[2]?.replace("_", " ");
+	console.log("4", category);
 
 	if (!storeProducts) {
 		throw new Response("", {
@@ -25,7 +29,7 @@ export async function loader({request}) {
 		})
 	}
 
-	if(search) {
+	if (search) {
 		return storeProducts.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
 	} else if (category) {
 		return storeProducts.filter(product => product.category.toLowerCase() == (category.toLowerCase()));
@@ -37,8 +41,6 @@ export async function loader({request}) {
 export default function Root() {
 	const storeProducts = useLoaderData();
 	const [cart, setCart] = useState({});
-
-	console.log(storeProducts);
 
 	return (
 		<rootContext.Provider value={{cart, setCart, storeProducts}}>
