@@ -58,7 +58,7 @@ export default function Cart() {
 							</div>
 						</div>
 						<div className="checkout-button">
-							<Link to={"/checkout"}>
+							<Link to={"checkout"}>
 								<button>Checkout</button>
 							</Link>
 						</div>

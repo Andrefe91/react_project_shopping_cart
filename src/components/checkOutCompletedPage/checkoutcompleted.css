@@ -1,0 +1,6 @@
+#checkout-completed {
+    outline: 1px solid gray;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+}

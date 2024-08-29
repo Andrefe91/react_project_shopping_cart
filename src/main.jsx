@@ -8,7 +8,11 @@ import CartPage from './components/cart/Cart.jsx';
 import AboutPage from './components/about/About.jsx';
 import Index from './routes/index/Index.jsx';
 import Checkout from './components/checkout/Checkout.jsx';
+import CheckoutCompletedPage from './components/checkOutCompletedPage/CheckOutCompleted.jsx';
 // import NotFoundPage from './components/not-found-page/not-found-page;'
+
+//Actions
+import { action as checkoutAction } from './components/checkout/Checkout.jsx';
 
 import './index.css'
 import Root, {loader as rootLoader} from './routes/root/Root.jsx'
@@ -34,9 +38,14 @@ const router = createBrowserRouter([
         element: <AboutPage />,
       },
       {
-        path: "checkout",
+        path: "cart/checkout",
         element: <Checkout />,
+        action: checkoutAction,
       },
+      {
+        path: "cart/checkout/completed",
+        element: <CheckoutCompletedPage />,
+      }
     ]
   }
 ]);

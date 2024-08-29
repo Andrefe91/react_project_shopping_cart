@@ -8,7 +8,7 @@ export default function About() {
 
 				<div className="about-description">
 					<p>
-						This is, of course, a simple exercise with the objective of
+						This App is, of course, a simple exercise with the objective of
 						practicing the latest concept from <strong>The Odin Project</strong>
 						. We are using React Router with some routines to fetch, manage and
 						organice an Online Store data with some simple UI.

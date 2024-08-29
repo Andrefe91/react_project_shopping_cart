@@ -33,6 +33,10 @@ nav {
     }
 }
 
+.nav-links div:nth-child(2) {
+    padding-right: 1rem;
+}
+
 .nav-links {
     display: flex;
 }

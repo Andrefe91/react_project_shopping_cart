@@ -1,0 +1,79 @@
+.cost-summary, .form-container, .cart-resume {
+    outline: 1px solid gray;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.cost-summary {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+#client-information {
+    margin-top: 1rem;
+
+    display: flex;
+    gap: 1rem;
+}
+
+.cart-resume {
+    flex: 1;
+}
+
+.product-title {
+    font-weight: 600;
+
+    &:before {
+        content: "-> ";
+    }
+}
+
+.form-container label {
+    margin-right: 1rem;
+}
+
+.form-container p {
+    display: flex;
+    align-items: center;
+}
+
+.form-container input {
+    flex: 1;
+}
+
+.form-container button {
+    flex: 1;
+}
+
+.form-container button{
+    width: 11rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    padding: 8px 16px;
+    text-align: center;
+    user-select: none;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:hover {
+        background-color: #2c974b;
+    }
+
+    &:active {
+        background-color: #298e46;
+        box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+    }
+}
