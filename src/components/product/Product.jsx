@@ -46,7 +46,7 @@ function Product({ productInfo, extended }) {
 
 			<div className="product-information">
 				{/* Check if on Main Page to show category */}
-				{extended && <CategoryLink category={productInfo.category} />}
+				{extended && <CategoryLink category={productInfo.category.replace(" ","_")} />}
 
 				<h3>{productInfo.title}</h3>
 				{productInfo.price > 100 && (

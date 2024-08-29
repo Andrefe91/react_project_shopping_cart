@@ -12,8 +12,11 @@ import { rootContext } from "../../context/rootContext";
 
 //Loader for this route - Loading the data from the API https://fakestoreapi.com/products
 // eslint-disable-next-line react-refresh/only-export-components
-export async function loader() {
+export async function loader({request}) {
 	const storeProducts = await fetchStoreProducts();
+	const url = new URL(request.url);
+	const search = url.searchParams.get("search")
+	const category = url.pathname.split("/")[2]?.replace("_", " ");
 
 	if (!storeProducts) {
 		throw new Response("", {
@@ -21,12 +24,21 @@ export async function loader() {
             statusText: "Error fetching products",
 		})
 	}
-	return storeProducts
+
+	if(search) {
+		return storeProducts.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
+	} else if (category) {
+		return storeProducts.filter(product => product.category.toLowerCase() == (category.toLowerCase()));
+	} else {
+		return storeProducts
+	}
 }
 
 export default function Root() {
 	const storeProducts = useLoaderData();
 	const [cart, setCart] = useState({});
+
+	console.log(storeProducts);
 
 	return (
 		<rootContext.Provider value={{cart, setCart, storeProducts}}>
