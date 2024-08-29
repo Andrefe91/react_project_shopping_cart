@@ -174,3 +174,9 @@ button.deleteFromCart {
 .product-container .cost-calculations p {
     margin-top: 0;
 }
+
+@media (width < 650px) {
+    .product-container, .cart-product-container {
+        flex-direction: column;
+    }
+}

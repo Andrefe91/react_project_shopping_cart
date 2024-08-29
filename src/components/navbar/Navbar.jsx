@@ -43,7 +43,7 @@ function Navbar() {
 						<Link to={"cart"}>Cart ({Object.keys(cart).length})</Link>
 					</div>
 
-					<div className="nav-button">
+					<div className="nav-button" id="about-button">
 						<Link to={"about"} >About</Link>
 					</div>
 				</div>

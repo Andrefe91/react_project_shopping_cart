@@ -10,7 +10,6 @@ import cartTotal from "../../scripts/cartTotal";
 import { rootContext } from "../../context/rootContext";
 
 export async function action() {
-
     // [TODO] Simulate a delay to mimic a server request
     return redirect("completed");
 }

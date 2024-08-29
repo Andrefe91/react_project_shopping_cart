@@ -39,6 +39,8 @@ nav {
 
 .nav-links {
     display: flex;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 #search-container > form {
@@ -62,4 +64,17 @@ div form input[type="search"] {
     display: flex;
     justify-content: center;
     flex: 1;
+}
+
+@media (width < 650px ) {
+    #search-container {
+        display: none;
+    }
+}
+
+
+@media (width < 381px ) {
+    #about-button {
+        display: none;
+    }
 }
