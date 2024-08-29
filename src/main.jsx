@@ -31,6 +31,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Index />,
+        loader: rootLoader,
       },
       {
         path: "cart",
@@ -52,6 +53,7 @@ const router = createBrowserRouter([
       {
         path: "category/:categoryName",
         element: <Index />,
+        loader: rootLoader,
       }
     ]
   }

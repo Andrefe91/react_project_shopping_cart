@@ -14,13 +14,12 @@ import { rootContext } from "../../context/rootContext";
 // eslint-disable-next-line react-refresh/only-export-components
 export async function loader({request}) {
 	const storeProducts = await fetchStoreProducts();
-	console.log("1", storeProducts);
 	const url = new URL(request.url);
-	console.log("2", url);
 	const search = url.searchParams.get("search")
-	console.log("3", search);
 	const category = url.pathname.split("/")[2]?.replace("_", " ");
-	console.log("4", category);
+
+	console.log("search", search);
+	console.log("category", category);
 
 	if (!storeProducts) {
 		throw new Response("", {
