@@ -18,9 +18,6 @@ export async function loader({request}) {
 	const search = url.searchParams.get("search")
 	const category = url.pathname.split("/")[2]?.replace("_", " ");
 
-	console.log("search", search);
-	console.log("category", category);
-
 	if (!storeProducts) {
 		throw new Response("", {
 			status: 500,
